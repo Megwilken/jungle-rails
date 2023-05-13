@@ -87,5 +87,12 @@
       font-weight: 700;
       text-align: center;
     }
+    .item {
+      position: relative;
+    }
+    .disabled {
+      opacity: 0.6;
+      cursor: not-allowed;
+    }
   }
 }
