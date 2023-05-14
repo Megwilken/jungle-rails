@@ -15,6 +15,8 @@
       <thead>
         <tr>
           <th>Product</th>
+          <th>Image</th>
+          <th>Description</th>
           <th>Quantity</th>
           <th>Price</th>
         </tr>
@@ -22,20 +24,28 @@
       </thead>
 
       <tbody>
-      
- 
+        <% @order.line_items.each do |line_item| %>
+          <tr>
+            <td><%= line_item.product.name %></td>
+            <td><%= image_tag line_item.product.image.url(:tiny) %></td>
+            <td><%= line_item.product.description %></td>
+            <td><%= line_item.quantity %></td>
+            <td><%= humanized_money_with_symbol line_item.total_price %></td>
+          </tr>
+          <% end %>
       </tbody>
 
       <tfoot>
         <tr>
-          <td colspan="2">Total</td>
+          <td colspan="4">Total</td>
           <td><%= humanized_money_with_symbol @order.total %></td>
         </tr>
       </tfoot>
     </table>
-  
+  </div>
+  <div class="clientg-details">
+  <p>A copy of your reciept will be delivered to: kvirani@gmail.com</p>
 
-
-  <%= link_to "Continue Shopping", root_path, class: 'btn btn-lg btn-primary' %>
+  <%= link_to "Continue Shopping", root_path, class: 'button btn-lg btn-primary' %>
 
 </section>
