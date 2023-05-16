@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  get 'about/index'
+  get '/about', to: 'about#index', as: 'about'
 
   root to: 'products#index'
 
@@ -15,9 +17,6 @@ Rails.application.routes.draw do
   namespace :admin do
     root to: 'dashboard#show'
     resources :products, except: [:edit, :update, :show]
-    #before_action :authenticate, except: [:login]
-
-    #private
 
     def authenticate
       authenticate_or_request_with_http_basic do |username, password|
