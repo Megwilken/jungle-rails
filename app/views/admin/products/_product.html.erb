@@ -1,7 +1,11 @@
 <tr>
   <td>
+  <% if product.image? %>
     <%= image_tag product.image.tiny.url %>
-  </td>
+  <% else %>
+    <%= image_tag 'http://placehold.it/100x100', alt: product.name %>
+  <% end %>
+    </td>
   <td>
     <h4><%= product.name %></h4>
     <br>
