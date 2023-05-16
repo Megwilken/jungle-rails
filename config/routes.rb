@@ -15,9 +15,9 @@ Rails.application.routes.draw do
   namespace :admin do
     root to: 'dashboard#show'
     resources :products, except: [:edit, :update, :show]
-    before_action :authenticate, except: [:login]
+    #before_action :authenticate, except: [:login]
 
-    private
+    #private
 
     def authenticate
       authenticate_or_request_with_http_basic do |username, password|
