@@ -6,4 +6,11 @@
   <%= form.password_field :password %>
 
   <%= form.submit 'Log in' %>
+
+  <% if flash[:alert] %>
+  <div class="alert alert-danger">
+    <%= flash[:alert] %>
+  </div>
+<% end %>
+
 <% end %>
