@@ -14,8 +14,16 @@ RSpec.describe Product, type: :model do
       expect(product.save).to be false
       expect(product.errors.full_messages).to include("Name can't be blank")
     end
-
-    
+    it 'validates presence of category' do
+      product = Product.new(category: nil)
+      expect(product).to_not be_valid
+      expect(product.errors[:category]).to include("can't be blank")
+    end
+    it 'validates presence of quantity' do
+      product = Product.new(quantity: nil)
+      expect(product).to_not be_valid
+      expect(product.errors[:quantity]).to include("can't be blank")
+    end
   end
 end
 
