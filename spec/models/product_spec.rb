@@ -7,4 +7,9 @@ RSpec.describe Product, type: :model do
       expect(product).to_not be_valid
       expect(product.errors[:name]).to include("can't be blank")
     end
+    it 'validates presence of price' do
+      product = Product.new(price: nil)
+      expect(product).to_not be_valid
+      expect(product.errors[:price]).to include("can't be blank")
+    end
 end
